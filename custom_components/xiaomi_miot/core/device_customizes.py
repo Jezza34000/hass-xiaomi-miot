@@ -1,5 +1,8 @@
 DEVICE_CUSTOMIZES = {
 
+    '090615.aircondition.ktf': {
+        'miot_type': 'urn:miot-spec-v2:device:air-conditioner:0000A004:090615-ktf:2',
+    },
     '090615.curtain.wsdml1': {
         'switch_properties': 'on,wake_up_mode',
         'select_properties': 'curtain-2.mode-5,default_open_position',
@@ -57,6 +60,21 @@ DEVICE_CUSTOMIZES = {
     },
     'cgllc.airm.cgdn1': {
         'exclude_miot_services': 'mac,settings',
+    },
+    'cgllc.airm.cgdn1:voltage': {
+        'value_ratio': 0.001,
+        'state_class': 'measurement',
+        'device_class': 'voltage',
+        'unit_of_measurement': 'V',
+    },
+    'cgllc.airm.cgd1st': {
+        'exclude_miot_services': 'mac,settings',
+    },
+    'cgllc.airm.cgd1st:voltage': {
+        'value_ratio': 0.001,
+        'state_class': 'measurement',
+        'device_class': 'voltage',
+        'unit_of_measurement': 'V',
     },
     'chuangmi.camera.v6': {
         'use_alarm_playlist': True,
@@ -124,6 +142,9 @@ DEVICE_CUSTOMIZES = {
         'switch_properties': 'childlock',
         'select_properties': 'tempactivate,tempcomp',
         'exclude_miot_properties': 'fault,sensortype,maxsettemp,minsettemp',
+    },
+    'cuco.acpartner.cp6': {
+        'switch_properties': 'air_conditioner.on',
     },
     'cuco.light.sl4': {
         'switch_properties': 'swich',
@@ -355,8 +376,9 @@ DEVICE_CUSTOMIZES = {
         'percentage_property': 'prop.2.6',
     },
     'dmaker.fan.*': {
-        'switch_properties': 'alarm',
-        'number_select_properties': 'horizontal_swing_included_angle,horizontal_angle',
+        'switch_properties': 'alarm,horizontal_swing,vertical_swing',
+        'number_select_properties': 'horizontal_swing_included_angle,horizontal_angle,'
+                                    'vertical_swing_included_angle,vertical_angle',
         'number_properties': 'off_delay_time',
     },
     'dmaker.humidifier.*': {
@@ -650,6 +672,12 @@ DEVICE_CUSTOMIZES = {
     'lumi.sensor_wleak.*': {
         'time_start_offset': -86400 * 365,
     },
+    'lumi.switch.acn032': {
+        'sensor_properties': 'electric_power',
+        'switch_properties': 'screen.on,mute,no_disturb',
+        'select_properties': 'volume',
+        'number_properties': 'brightness,auto_screen_off_time',
+    },
     'lumi.switch.*': {
         'cloud_delay_update': 10,
     },
@@ -740,6 +768,7 @@ DEVICE_CUSTOMIZES = {
         'number_properties': 'numleds,pixel_per_step,fade_delay,step_delay,stair_travel_time',
     },
     'qdhkl.aircondition.b23': {
+        'local_delay_update': 8,
         'cloud_delay_update': 8,
         'miot_type': 'urn:miot-spec-v2:device:air-conditioner:0000A004:qdhkl-b23:2',
     },
@@ -845,6 +874,7 @@ DEVICE_CUSTOMIZES = {
         'brightness_for_off': 1,
     },
     'suittc.airrtc.wk168': {
+        'sensor_properties': 'temperature',
         'switch_properties': 'on',
         'turn_on_hvac': 'heat',
     },
@@ -919,6 +949,10 @@ DEVICE_CUSTOMIZES = {
         'exclude_miot_properties': 'enhance.timer,humidity_range,filter_core_rest,sleep_diy_sign',
     },
     'xiaomi.aircondition.mt6': {
+        'exclude_miot_services': 'iot_linkage,machine_state,screen_show',
+        'exclude_miot_properties': 'enhance.timer,humidity_range,filter_core_rest,sleep_diy_sign',
+    },
+    'xiaomi.aircondition.m9': {
         'exclude_miot_services': 'iot_linkage,machine_state,screen_show',
         'exclude_miot_properties': 'enhance.timer,humidity_range,filter_core_rest,sleep_diy_sign',
     },
@@ -1033,6 +1067,8 @@ DEVICE_CUSTOMIZES = {
     },
     'zhimi.airfresh.ua1': {
         'exclude_miot_services': 'custom_serveice',
+        'brightness_for_on': 100,
+        'brightness_for_off': 1,
     },
     'zhimi.airfresh.va4': {
         'sensor_properties': 'motor_speed',
@@ -1091,8 +1127,8 @@ DEVICE_CUSTOMIZES = {
         'brightness_for_off': 2,
     },
     'zhimi.fan.*': {
-        'switch_properties': 'anion,alarm',
-        'number_properties': 'horizontal_angle,off_delay',
+        'switch_properties': 'anion,alarm,horizontal_swing,vertical_swing',
+        'number_properties': 'horizontal_angle,vertical_angle,off_delay',
     },
     'zhimi.heater.na1': {
         'switch_properties': 'return_to_middle,alarm',
